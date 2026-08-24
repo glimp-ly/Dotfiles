@@ -1,0 +1,3 @@
+;; Importar módulos por subcarpeta
+(include "./bar/eww.yuck")
+(include "./dashboard/eww.yuck")

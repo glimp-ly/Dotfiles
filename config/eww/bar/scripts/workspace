@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+# Requiere: hyprland, socat, jq
+
+workspaces() {
+    # Obtener IDs de workspaces ocupados y el workspace activo
+    occupied_ws=$(hyprctl -j workspaces | jq -r '.[].id')
+    active_ws=$(hyprctl -j activeworkspace | jq -r '.id')
+
+    un="0"
+
+    # Workspace 1
+    o1=$(echo "$occupied_ws" | grep -qx "1" && echo "1" || echo "")
+    f1=$([ "$active_ws" = "1" ] && echo "1" || echo "")
+
+    # Workspace 2
+    o2=$(echo "$occupied_ws" | grep -qx "2" && echo "2" || echo "")
+    f2=$([ "$active_ws" = "2" ] && echo "2" || echo "")
+
+    # Workspace 3
+    o3=$(echo "$occupied_ws" | grep -qx "3" && echo "3" || echo "")
+    f3=$([ "$active_ws" = "3" ] && echo "3" || echo "")
+
+    # Workspace 4
+    o4=$(echo "$occupied_ws" | grep -qx "4" && echo "4" || echo "")
+    f4=$([ "$active_ws" = "4" ] && echo "4" || echo "")
+
+    # Workspace 5
+    o5=$(echo "$occupied_ws" | grep -qx "5" && echo "5" || echo "")
+    f5=$([ "$active_ws" = "5" ] && echo "5" || echo "")
+
+    # Workspace 6
+    o6=$(echo "$occupied_ws" | grep -qx "6" && echo "6" || echo "")
+    f6=$([ "$active_ws" = "6" ] && echo "6" || echo "")
+
+    # Generar el layout YUCK
+    echo "(box :class \"works\" :orientation \"v\" \
+        :halign \"center\" :valign \"start\" \
+        :space-evenly false :spacing -5 \
+        (button :onclick \"hyprctl dispatch workspace 1\" :class \"$un$o1$f1\" \"\") \
+        (button :onclick \"hyprctl dispatch workspace 2\" :class \"$un$o2$f2\" \"\") \
+        (button :onclick \"hyprctl dispatch workspace 3\" :class \"$un$o3$f3\" \"\") \
+        (button :onclick \"hyprctl dispatch workspace 4\" :class \"$un$o4$f4\" \"\") \
+        (button :onclick \"hyprctl dispatch workspace 5\" :class \"$un$o5$f5\" \"\") \
+        (button :onclick \"hyprctl dispatch workspace 6\" :class \"$un$o6$f6\" \"\"))"
+}
+
+# Ejecutar una vez al inicio
+workspaces
+
+# Escuchar eventos de Hyprland mediante socat (IPC socket2)
+SOCKET="$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock"
+
+if [ -S "$SOCKET" ]; then
+    socat -u "UNIX-CONNECT:$SOCKET" - | while read -r line; do
+        case "$line" in
+            workspace*|focusedmon*|createworkspace*|destroyworkspace*|movewindow*)
+                workspaces
+                ;;
+        esac
+    done
+else
+    # Fallback si no está disponible socat
+    while true; do
+        sleep 1
+        workspaces
+    done
+fi
