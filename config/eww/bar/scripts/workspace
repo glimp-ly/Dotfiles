@@ -3,7 +3,7 @@
 # Requiere: hyprland, socat, jq
 
 workspaces() {
-    # Obtener IDs de workspaces ocupados y el workspace activo
+    # Consultas JSON estándar
     occupied_ws=$(hyprctl -j workspaces | jq -r '.[].id')
     active_ws=$(hyprctl -j activeworkspace | jq -r '.id')
 
@@ -33,22 +33,22 @@ workspaces() {
     o6=$(echo "$occupied_ws" | grep -qx "6" && echo "6" || echo "")
     f6=$([ "$active_ws" = "6" ] && echo "6" || echo "")
 
-    # Generar el layout YUCK
+    # Generar layout YUCK con dispatching de Lua
     echo "(box :class \"works\" :orientation \"v\" \
         :halign \"center\" :valign \"start\" \
         :space-evenly false :spacing -5 \
-        (button :onclick \"hyprctl dispatch workspace 1\" :class \"$un$o1$f1\" \"\") \
-        (button :onclick \"hyprctl dispatch workspace 2\" :class \"$un$o2$f2\" \"\") \
-        (button :onclick \"hyprctl dispatch workspace 3\" :class \"$un$o3$f3\" \"\") \
-        (button :onclick \"hyprctl dispatch workspace 4\" :class \"$un$o4$f4\" \"\") \
-        (button :onclick \"hyprctl dispatch workspace 5\" :class \"$un$o5$f5\" \"\") \
-        (button :onclick \"hyprctl dispatch workspace 6\" :class \"$un$o6$f6\" \"\"))"
+        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"1\\\" })'\" :class \"$un$o1$f1\" \"\") \
+        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"2\\\" })'\" :class \"$un$o2$f2\" \"\") \
+        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"3\\\" })'\" :class \"$un$o3$f3\" \"\") \
+        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"4\\\" })'\" :class \"$un$o4$f4\" \"\") \
+        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"5\\\" })'\" :class \"$un$o5$f5\" \"\") \
+        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"6\\\" })'\" :class \"$un$o6$f6\" \"\"))"
 }
 
-# Ejecutar una vez al inicio
+# Ejecución inicial
 workspaces
 
-# Escuchar eventos de Hyprland mediante socat (IPC socket2)
+# Escucha reactiva sobre socket2
 SOCKET="$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock"
 
 if [ -S "$SOCKET" ]; then
@@ -60,7 +60,6 @@ if [ -S "$SOCKET" ]; then
         esac
     done
 else
-    # Fallback si no está disponible socat
     while true; do
         sleep 1
         workspaces
