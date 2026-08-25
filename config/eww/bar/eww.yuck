@@ -194,14 +194,14 @@
 (end)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;							Window Section's							 ;;	
+;;			Window Section's				 ;;	
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bar Windows ;;
 (defwindow bar
 	:monitor "eDP-1"
-	:geometry (geometry 	:x "8px" 
-				:y "6px" 
-				:height "99%" 
+	:geometry (geometry 	:x "0px" 
+				:y "0px" 
+				:height "100%" 
 				:width "2.5%"
 				:anchor "left center")
 	:stacking "fg"
