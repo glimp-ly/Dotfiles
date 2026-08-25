@@ -60,7 +60,7 @@
       "text": "Label Text"
     },
     "mpris": {
-      "autohide": true
+      "autohide": false
     }
   }
 }
