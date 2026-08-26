@@ -76,8 +76,12 @@ $ws-sizes: (
     font-size: $size;
   }
 
-  // Tamaño por clase para estados Ocupado (.0X) y Enfocado (.0XX)
-  .\30 #{$ws},
+  // Tamaño por clase para estado Ocupado (.0X)
+  .\30 #{$ws} {
+    font-size: $size;
+  }
+
+  // Tamaño por clase para estado Enfocado (.0XX)
   .\30 #{$ws}#{$ws} {
     font-size: 1.7em;
   }
