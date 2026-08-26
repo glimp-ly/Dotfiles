@@ -1,48 +1,48 @@
 #!/usr/bin/env bash
 
-# Requiere: hyprland, socat, jq
+# Iconos para los workspaces del 1 al 10
+ICONS=("" "" "" "" "" "" "" "" "" "" "")
 
 workspaces() {
-    # Consultas JSON estándar
-    occupied_ws=$(hyprctl -j workspaces | jq -r '.[].id')
+    # 1. Obtener workspace activo y workspaces ocupados
+    local active_ws occupied_ws
     active_ws=$(hyprctl -j activeworkspace | jq -r '.id')
+    occupied_ws=$(hyprctl -j workspaces | jq -r '.[].id')
 
-    un="0"
+    # Si por alguna razón active_ws no es numérico, default a 1
+    [[ "$active_ws" =~ ^[0-9]+$ ]] || active_ws=1
 
-    # Workspace 1
-    o1=$(echo "$occupied_ws" | grep -qx "1" && echo "1" || echo "")
-    f1=$([ "$active_ws" = "1" ] && echo "1" || echo "")
+    # 2. Determinar el rango visible (1..5 o 6..10)
+    local start_ws end_ws
+    if [ "$active_ws" -le 5 ]; then
+        start_ws=1
+        end_ws=5
+    else
+        start_ws=6
+        end_ws=10
+    fi
 
-    # Workspace 2
-    o2=$(echo "$occupied_ws" | grep -qx "2" && echo "2" || echo "")
-    f2=$([ "$active_ws" = "2" ] && echo "2" || echo "")
+    local occ_pattern=" $occupied_ws "
+    local buttons=""
 
-    # Workspace 3
-    o3=$(echo "$occupied_ws" | grep -qx "3" && echo "3" || echo "")
-    f3=$([ "$active_ws" = "3" ] && echo "3" || echo "")
+    # 3. Iterar únicamente por el rango visible
+    for ((i = start_ws; i <= end_ws; i++)); do
+        local o="" f=""
+        
+        # Comprobar si está ocupado
+        [[ "$occ_pattern" =~ [[:space:]]"$i"[[:space:]] ]] && o="$i"
+        
+        # Comprobar si está activo
+        [ "$active_ws" -eq "$i" ] && f="$i"
 
-    # Workspace 4
-    o4=$(echo "$occupied_ws" | grep -qx "4" && echo "4" || echo "")
-    f4=$([ "$active_ws" = "4" ] && echo "4" || echo "")
+        local class="0${o}${f}"
+        local icon="${ICONS[$i]}"
 
-    # Workspace 5
-    o5=$(echo "$occupied_ws" | grep -qx "5" && echo "5" || echo "")
-    f5=$([ "$active_ws" = "5" ] && echo "5" || echo "")
+        buttons+=" (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"$i\\\" })'\" :class \"$class\" \"$icon\")"
+    done
 
-    # Workspace 6
-    o6=$(echo "$occupied_ws" | grep -qx "6" && echo "6" || echo "")
-    f6=$([ "$active_ws" = "6" ] && echo "6" || echo "")
-
-    # Generar layout YUCK con dispatching de Lua
-    echo "(box :class \"works\" :orientation \"v\" \
-        :halign \"center\" :valign \"start\" \
-        :space-evenly false :spacing -5 \
-        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"1\\\" })'\" :class \"$un$o1$f1\" \"\") \
-        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"2\\\" })'\" :class \"$un$o2$f2\" \"\") \
-        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"3\\\" })'\" :class \"$un$o3$f3\" \"\") \
-        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"4\\\" })'\" :class \"$un$o4$f4\" \"\") \
-        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"5\\\" })'\" :class \"$un$o5$f5\" \"\") \
-        (button :onclick \"hyprctl dispatch 'hl.dsp.focus({ workspace = \\\"6\\\" })'\" :class \"$un$o6$f6\" \"\"))"
+    # 4. Imprimir el bloque Yuck
+    echo "(box :class \"works\" :orientation \"v\" :halign \"center\" :valign \"start\" :space-evenly false :spacing -5$buttons)"
 }
 
 # Ejecución inicial
