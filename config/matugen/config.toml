@@ -1,0 +1,8 @@
+[config]
+# Prefijo opcional para recarga de apps o configuración general
+
+# 1. Plantilla para Hyprland (Lua)
+[templates.hyprland]
+input_path = "~/.config/matugen/templates/hyprland-colors.lua"
+output_path = "~/.config/hypr/colors.lua"
+post_hook = "hyprctl reload"
