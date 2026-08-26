@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Iconos para los workspaces del 1 al 10
-ICONS=("" "" "" "" "" "" "" "" "" "" "")
+ICONS=("" "" "" "" "" "" "" "" "" "" "")
 
 workspaces() {
     # 1. Obtener workspace activo y workspaces ocupados
