@@ -1,0 +1,65 @@
+{
+  "backups": {
+    "20260813_230712": {
+      "date": "2026-08-13T23:07:12.781331",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260813_232332": {
+      "date": "2026-08-13T23:23:32.831249",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260813_233523": {
+      "date": "2026-08-13T23:35:23.982012",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260813_234745": {
+      "date": "2026-08-13T23:47:45.797733",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260814_000830": {
+      "date": "2026-08-14T00:08:30.864517",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260814_152959": {
+      "date": "2026-08-14T15:29:59.266406",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260814_154237": {
+      "date": "2026-08-14T15:42:37.445355",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260814_161014": {
+      "date": "2026-08-14T16:10:14.708647",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260814_181408": {
+      "date": "2026-08-14T18:14:08.524127",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260815_135522": {
+      "date": "2026-08-15T13:55:22.507938",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 26
+    },
+    "20260815_143817": {
+      "date": "2026-08-15T14:38:17.284271",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 29
+    },
+    "20260815_143830": {
+      "date": "2026-08-15T14:38:30.379456",
+      "label": "Pre-conversi\u00f3n autom\u00e1tica",
+      "file_count": 29
+    }
+  },
+  "latest": "20260815_143830"
+}
