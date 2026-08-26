@@ -50,7 +50,7 @@ $ws-sizes: (
 
 // 2. Estilos base para el estado desocupado (.0)
 .\30 {
-  margin: 0.7rem 0.4rem 0.7rem 0;
+  margin: 0.7rem 0.5rem 0.7rem 0;
   color: $gray;
 }
 
@@ -58,13 +58,13 @@ $ws-sizes: (
 @for $i from 1 through 10 {
   // Estado Ocupado: .01, .02, ..., .010
   .\30 #{$i} {
-    margin: 0.7rem 0.4rem 0.7rem 0;
+    margin: 0.7rem 0.5rem 0.7rem 0;
     color: $foreground;
   }
 
   // Estado Enfocado: .011, .022, ..., .01010
   .\30 #{$i}#{$i} {
-    margin: 1rem 0.4rem 1rem 0;
+    margin: 1rem 0.6rem 1rem 0;
     color: $green;
   }
 }
