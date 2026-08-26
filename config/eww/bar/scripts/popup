@@ -27,7 +27,7 @@ fi
 if [ "$1" = "launcher" ]; then
 rofi -show drun
 elif [ "$1" = "wifi" ]; then
-kitty -e nmtui
+rofi-wifi
 elif [ "$1" = "audio" ]; then
 pavucontrol
 elif [ "$1" = "calendar" ]; then
