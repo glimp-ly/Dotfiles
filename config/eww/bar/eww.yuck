@@ -15,7 +15,7 @@
 		 :space-evenly "false" 
 		 :spacing -15
   	(button :class "launcher_icon" 
-		   	:onclick "scripts/popup launcher"  "󰣇")))
+		   	:onclick "scripts/popup launcher"  "")))
 
 ;; Workspaces Widgets ;;
 (defwidget workspaces []
@@ -83,8 +83,9 @@
 			  :max 101 
 			  :min 0 
 			  :onchange "amixer -D pulse sset Master {}%" ))
-	(button   :onclick "scripts/popup audio"   :class "volume-icon" "🕪"))))
-(defpoll current-volume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+	(button   :onclick "scripts/popup audio"   :class "volume-icon" volume-icon))))
+(defpoll current-volume :interval ".1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll volume-icon :interval "1s" "scripts/audio")
 (defvar volum false)
 
 ;; Control Panel Widgets ;;	
