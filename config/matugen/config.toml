@@ -12,3 +12,8 @@ post_hook = "hyprctl reload"
 input_path = "~/.config/matugen/templates/eww-colors.scss"
 output_path = "~/.config/eww/bar/color.scss"
 post_hook = "eww -c ~/Dotfiles/config/eww/bar open bar"
+
+# plantilla para rofi
+[templates.rofi]
+input_path = "~/.config/matugen/templates/rofi-colors.rasi"
+output_path = "~/.config/rofi/themes/colors.rasi"
