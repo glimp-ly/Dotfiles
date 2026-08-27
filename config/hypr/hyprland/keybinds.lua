@@ -42,9 +42,9 @@ hl.define_submap("global", function()
 
         	# 3. Leer estado y notificar
         	if wpctl get-volume "$STEREO_ID" | grep -q "MUTED"; then
-            		notify-send -u low -i audio-input-microphone-muted "Micrófono" "Silenciado (Hardware Stereo)" -r 999
+            		notify-send -u low -i microphone-sensitivity-muted-symbolic "Micrófono" "Silenciado (Hardware Stereo)" -r 999
         	else
-            	notify-send -u low -i audio-input-microphone "Micrófono" "Activo (Hardware Stereo)" -r 999
+            	notify-send -u low -i microphone-sensitivity-high-symbolic "Micrófono" "Activo" -r 999
         	fi
     	]]))
     end, { locked = true })
@@ -192,9 +192,20 @@ hl.define_submap("global", function()
     -- Utilities
     hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))  -- Colour picker
 
-    -- Volume
-    hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
-    hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+    -- Volumen
+    hl.bind("XF86AudioMute", function()
+    	hl.dispatch(hl.dsp.exec_cmd([[
+        	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+        	if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q "MUTED"; then
+            		notify-send -u low -i audio-volume-muted-symbolic "Audio" "Silenciado" -r 998
+        	else
+            		# Obtener porcentaje actual para mostrarlo al desmutear
+            		VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}')
+            		notify-send -u low -i audio-volume-high-symbolic "Audio" "Activo ($VOL%)" -r 998
+        	fi
+    	]]))
+    end, { locked = true })
     hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
     hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
     hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
