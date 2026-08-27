@@ -1,0 +1,21 @@
+#!/bin/sh
+
+STEREO_ID=$(pw-dump | jq -r '.[] | select(.info.props["node.description"] == "Ryzen HD Audio Controller Stereo Microphone") | .id' | head -n1)
+
+icon() {
+
+	if wpctl get-volume "$STEREO_ID" | grep -q "MUTED"; then
+		icon="󰍭"
+	else
+		icon="󰍬"	
+	fi
+	echo "$icon"
+}
+
+toggle() {
+	wpctl set-mute "$STEREO_ID" toggle
+}
+
+[ "$1" = "icon" ] && icon && exit
+[ "$1" = "toggle" ] && toggle && exit
+exit
