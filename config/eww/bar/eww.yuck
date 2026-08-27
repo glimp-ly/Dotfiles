@@ -22,6 +22,13 @@
 	(literal :content workspace))
 (deflisten workspace "scripts/workspace")
 
+;; Microphone Widget ;;
+(defwidget mic []
+        (box            :orientation "v"
+        (button         :onclick "scripts/microphone toggle" 
+                                :class "mic" mic-icon)))
+(defpoll mic-icon :interval "0.5s" "scripts/microphone icon")
+
 ;; Battery Widgets ;;
 (defwidget bat []
 	(box	:orientation "v"	
@@ -93,6 +100,7 @@
 	(box :orientation "v" 
 		 :space-evenly false  
 		 :class "control"
+(mic)
 (bat)
 (wifi)
 (bright)
