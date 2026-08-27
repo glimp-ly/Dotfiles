@@ -26,6 +26,29 @@ hl.define_submap("global", function()
     -- panel de cambio de wallpaper
     hl.bind("SUPER + ALT + W", hl.dsp.exec_cmd("~/.config/rofi/scripts/wallpaper.sh"))
 
+    -- mutear microfono con notificacion de estado
+    hl.bind("XF86AudioMicMute", function()
+	hl.dispatch(hl.dsp.exec_cmd([[
+        	# 1. Obtener el ID del nodo físico Stereo Microphone
+        	STEREO_ID=$(pw-dump | jq -r '.[] | select(.info.props["node.description"] == "Ryzen HD Audio Controller Stereo Microphone") | .id' | head -n1)
+
+        	# Fallback si no está instalado jq
+        	if [ -z "$STEREO_ID" ]; then
+            	STEREO_ID=$(wpctl status | grep "Stereo Microphone" | grep -oE '[0-9]+' | head -n1)
+        	fi
+
+        	# 2. Alternar mute
+        	wpctl set-mute "$STEREO_ID" toggle
+
+        	# 3. Leer estado y notificar
+        	if wpctl get-volume "$STEREO_ID" | grep -q "MUTED"; then
+            		notify-send -u low -i audio-input-microphone-muted "Micrófono" "Silenciado (Hardware Stereo)" -r 999
+        	else
+            	notify-send -u low -i audio-input-microphone "Micrófono" "Activo (Hardware Stereo)" -r 999
+        	fi
+    	]]))
+    end, { locked = true })
+
     -- Go to workspace #
     -- $wsaction = ~/.config/hypr/scripts/wsaction.fish
     hl.bind("SUPER + 1", hl.dsp.exec_cmd("~/.config/hypr/scripts/sync_ws.sh 1"))
