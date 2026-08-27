@@ -27,7 +27,7 @@ fi
 if [ "$1" = "launcher" ]; then
 rofi -show drun
 elif [ "$1" = "wifi" ]; then
-rofi-wifi
+rofi-wifi-menu.sh
 elif [ "$1" = "audio" ]; then
 wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 elif [ "$1" = "calendar" ]; then
