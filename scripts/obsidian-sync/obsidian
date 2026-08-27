@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Variables
+OBSIDIAN_BIN="/usr/bin/obsidianT"
+LOCAL_DIR="$HOME/obsidianMe"
+REMOTE="obsidian-remote:obsidianMe"
+LOG="$HOME/.obsidian-sync.log"
+WATCHER="$HOME/.obsidian-watch-sync.sh"
+
+# Función para mostrar errores
+notify_error() {
+    zenity --error --text="❌ Error al sincronizar con Drive. Revisa el log: $LOG"
+}
+
+# Preguntar si desea sincronizar desde Drive
+if zenity --question --title="Sincronizar Obsidian" --text="¿Descargar últimos cambios desde Drive?"; then
+    echo "[$(date +%F\ %T)] [INICIO] Sincronización REMOTO → LOCAL" >> "$LOG"
+    rclone sync "$REMOTE" "$LOCAL_DIR" --log-level INFO >> "$LOG" 2>&1 || notify_error
+    echo "[$(date +%F\ %T)] [FIN] Sincronización REMOTO → LOCAL" >> "$LOG"
+fi
+
+# Lanzar Obsidian
+nohup "$OBSIDIAN_BIN" "$@" >/dev/null 2>&1 &
+
+# Lanzar watcher si no está corriendo
+if ! pgrep -f "$WATCHER" > /dev/null; then
+    nohup bash "$WATCHER" >/dev/null 2>&1 &
+fi
