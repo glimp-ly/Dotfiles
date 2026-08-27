@@ -29,7 +29,7 @@ rofi -show drun
 elif [ "$1" = "wifi" ]; then
 rofi-wifi
 elif [ "$1" = "audio" ]; then
-pavucontrol
+wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 elif [ "$1" = "calendar" ]; then
 calendar
 fi
