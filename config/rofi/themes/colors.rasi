@@ -1,53 +1,33 @@
-/* =============================================================================
- * colors.rasi — Universal Neutral Glass Palette
- * Works with almost any wallpaper/theme
- * ============================================================================= */
-
 * {
-    /* ── Core Neutral Palette ───────────────── */
+    base:            #1a110f;
+    mantle:          #231917;
+    crust:           #140c0a;
 
-    base:           #121212;
-    mantle:         #161616;
-    crust:          #0f0f0f;
+    surface0:        #271d1b;
+    surface1:        #322825;
+    surface2:        #3d322f;
 
-    surface0:       #1c1c1c;
-    surface1:       #262626;
-    surface2:       #303030;
+    overlay0:        #a08c87;
 
-    overlay0:       #707070;
+    subtext0:        #d8c2bc;
+    text:            #f1dfda;
 
-    subtext0:       #b0b0b0;
-    text:           #f5f5f5;
+    accent:          #ffb59f;
+    accent2:         #d8c68d;
 
-    /* ── Soft Neutral Accents ───────────────── */
+    red:             #ffb4ab;
+    yellow:          #d8c68d;
+    green:           #ffb59f;
+    blue:            #e7bdb2;
 
-    accent:         #d0d0d0;
-    accent2:        #ffffff;
+    bg-main:         rgba(26, 17, 15, 0.01);
+    bg-alt:          rgba(39, 29, 27, 0.90);
+    bg-selected:     rgba(255, 181, 159, 0.2);
 
-    red:            #ff7a7a;
-    yellow:         #ffd27f;
-    green:          #8fd19e;
-    blue:           #8ab4f8;
+    fg-main:         #f1dfda;
+    fg-dim:          #d8c2bc;
+    fg-selected:     #ffb59f;
 
-    /* ── Semantic Colors ────────────────────── */
-
-    bg-main:        rgba(18, 18, 18, 0.01);
-
-    bg-alt:         rgba(22, 22, 22, 0.1);
-
-    bg-panel:       rgba(28, 28, 28, 0.01);
-
-    bg-hover:       rgba(255, 255, 255, 0.01);
-
-    bg-selected:    rgba(255, 255, 255, 0.1);
-
-    fg-main:        #f5f5f5;
-
-    fg-dim:         #bdbdbd;
-
-    fg-selected:    #ffffff;
-
-    border-col:     rgba(255, 255, 255, 0.9);
-
-    urgent-col:     #ff7a7a;
+    border-col:      rgba(255, 181, 159, 0.80);
+    urgent-col:      #ffb4ab;
 }

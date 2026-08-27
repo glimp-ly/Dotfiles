@@ -1,45 +1,59 @@
 /**
- * Author: Primetoxinz
+ * Author: Glimp
  */
-* {
-    text-color:                  #f2f2f2;
-    background-color:            rgb(10,10,10,0.01);
-    lightbg:                     #534c48;
-    red:                         #f15d22;
-    orange:                      #faa41a; 
-    blue:                        #48b9c7;
-    pywal-color:                 #ABE9B3;
-    black-foreground:            #000000;
+/* =============================================================================
+ * Integración con colors.rasi (Compatible con Matugen)
+ * ============================================================================= */
 
-    selected-normal-foreground:  @foreground;
-    normal-foreground:           @foreground;
-    alternate-normal-background: @background;
-    selected-urgent-foreground:  @foreground;
-    urgent-foreground:           @foreground;
-    alternate-urgent-background: @background;
-    active-foreground:           @foreground;
-    selected-active-foreground:  @foreground;
-    alternate-normal-foreground: @foreground;
-    alternate-active-background: @blue;
-    bordercolor:                 @foreground;
-    normal-background:           @background;
-    selected-normal-background:  @blue;
-    separatorcolor:              @orange;
+@import "colors.rasi"
+
+* {
+    /* Base y fuentes */
+    background-color:            transparent;
+    text-color:                  var(fg-main);
+    font:                        "JetBrainsMono Nerd Font 10";
+
+    /* Variables legacy mapeadas a colors.rasi */
+    foreground:                  var(fg-main);
+    background:                  var(bg-main);
+    bordercolor:                 var(border-col);
+    separatorcolor:              var(surface1);
     spacing:                     2;
-    urgent-background:           @red;
-    alternate-urgent-foreground: @foreground;
-    selected-urgent-background:  @red;
-    alternate-active-foreground: @foreground;
-    selected-active-background:  @blue;
-    active-background:           @orange;
-}
+
+    /* Estados normales */
+    normal-background:           transparent;
+    normal-foreground:           var(fg-dim);
+    alternate-normal-background: transparent;
+    alternate-normal-foreground: var(fg-dim);
+
+    /* Selección */
+    selected-normal-background:  var(bg-selected);
+    selected-normal-foreground:  var(fg-selected);
+
+    /* Activo (Conexión establecida / Toggle ON) */
+    active-background:           transparent;
+    active-foreground:           var(green);
+    selected-active-background:  var(bg-selected);
+    selected-active-foreground:  var(green);
+    alternate-active-background: transparent;
+    alternate-active-foreground: var(green);
+
+    /* Urgente / Alertas / Errores */
+    urgent-background:           transparent;
+    urgent-foreground:           var(urgent-col);
+    selected-urgent-background:  var(bg-selected);
+    selected-urgent-foreground:  var(urgent-col);
+    alternate-urgent-background: transparent;
+    alternate-urgent-foreground: var(urgent-col);
+}    
 window {
     border:     0;
     text-color: #FFFFFFff;
     /*background-color: rgba ( 0, 0, 0, 0 % );*/
     background-color: @blue;
-    border-color: @orange;
-    border-radius: 14px;
+    border: 1px;
+    border-color: var(border-col);
+    border-radius: 12px;
     padding:    5;
     text-color: @orange;
     background-color: @background;

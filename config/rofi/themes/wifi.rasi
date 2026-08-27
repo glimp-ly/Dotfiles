@@ -1,0 +1,118 @@
+/* =============================================================================
+ * wifi.rasi — Menú Wi-Fi translúcido con soporte para colors.rasi
+ * ============================================================================= */
+
+@import "colors.rasi"
+
+* {
+    background-color: transparent;
+    text-color:       var(fg-main);
+    font:             "JetBrainsMono Nerd Font 10";
+}
+
+window {
+    transparency:     "real";
+    location:         south west;
+    anchor:           south west;
+    x-offset:         10px;
+    y-offset:         -10px;
+    width:            25%;
+    height:           35%;
+    border-radius:    12px;
+    border:           1px;
+    border-color:     var(border-col);
+    background-color: var(bg-main);
+    children:         [ mainbox ];
+}
+
+mainbox {
+    spacing:          8px;
+    padding:          12px;
+    background-color: transparent;
+    children:         [ inputbar, listview ];
+}
+
+inputbar {
+    spacing:          8px;
+    padding:          6px 10px;
+    background-color: var(bg-alt);
+    border:           1px;
+    border-color:     var(surface1);
+    border-radius:    8px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color:       var(accent2);
+    background-color: transparent;
+}
+
+entry {
+    placeholder:      "Buscar red...";
+    placeholder-color: var(overlay0);
+    text-color:       var(fg-main);
+    background-color: transparent;
+}
+
+listview {
+    columns:          1;
+    lines:            8;
+    cycle:            true;
+    dynamic:          true;
+    scrollbar:        false;
+    spacing:          4px;
+    background-color: transparent;
+}
+
+element {
+    padding:          8px 10px;
+    border-radius:    6px;
+    background-color: transparent;
+    text-color:       var(fg-main);
+    cursor:           pointer;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+}
+
+/* ─── Estados Normales y Hover ─── */
+element normal.normal, element alternate.normal {
+    background-color: transparent;
+    text-color:       var(fg-dim);
+}
+
+element selected.normal {
+    background-color: var(bg-selected);
+    text-color:       var(fg-selected);
+    border:           1px;
+    border-color:     var(surface2);
+}
+
+/* ─── Redes Activas / Conectadas ─── */
+element normal.active, element alternate.active {
+    background-color: transparent;
+    text-color:       var(green);
+}
+
+element selected.active {
+    background-color: var(bg-selected);
+    text-color:       var(green);
+    border:           1px;
+    border-color:     var(green);
+}
+
+/* ─── Redes con Errores / Alertas ─── */
+element normal.urgent, element alternate.urgent {
+    background-color: transparent;
+    text-color:       var(urgent-col);
+}
+
+element selected.urgent {
+    background-color: var(bg-selected);
+    text-color:       var(urgent-col);
+    border:           1px;
+    border-color:     var(urgent-col);
+}
