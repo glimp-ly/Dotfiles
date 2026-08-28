@@ -21,7 +21,7 @@
     blue:            #e7bdb2;
 
     bg-main:         rgba(26, 17, 15, 0.01);
-    bg-alt:          rgba(39, 29, 27, 0.90);
+    bg-alt:          rgba(39, 29, 27, 0.5);
     bg-selected:     rgba(255, 181, 159, 0.2);
 
     fg-main:         #f1dfda;
