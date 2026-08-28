@@ -92,10 +92,15 @@ inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
     //border-radius: 100px;
 }
+
+entry {
+	margin: 0.4em 0 0 0;
+}
+
 textbox-prompt-colon {
     expand:     false;
-    str:        " ::";
-    margin:     0px 0.3em 0em 0em ;
+    str:        "::";
+    margin:     0.4em 0.3em 0em 0em ;
     text-color: @normal-foreground;
     //padding: 1.40% 0% 1% 0%;
 }
