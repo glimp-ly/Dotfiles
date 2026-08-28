@@ -1,0 +1,123 @@
+// Generado automáticamente por Matugen v3
+// Ubicación destino: ~/.config/eww/bar/color.scss
+
+// ─── Variables Base y Compatibilidad ───
+$background: transparent;
+$surface_raw: #1a1111;
+$surface: rgba(26, 17, 17, 0);
+$surface_container: #271d1d;
+$foreground: #ffb3b2;
+
+// ─── Paleta de Color Semántica (Tokens de compatibilidad) ───
+$black:   #140c0c;
+$gray:    #a08c8c;
+$red:     #ffb4ab;
+$green:   #e4c18d;
+$yellow:  #e4c18d;
+$blue:    #ffb3b2;
+$magenta: #e6bdbc;
+$cyan:    #ffb3b2;
+$white:   #f0dede;
+
+// ─── Material Design 3 Tokens Completos ───
+
+$background: #1a1111;
+
+$error: #ffb4ab;
+
+$error_container: #93000a;
+
+$inverse_on_surface: #382e2e;
+
+$inverse_primary: #904a4b;
+
+$inverse_surface: #f0dede;
+
+$on_background: #f0dede;
+
+$on_error: #690005;
+
+$on_error_container: #ffdad6;
+
+$on_primary: #561d20;
+
+$on_primary_container: #ffdad9;
+
+$on_primary_fixed: #3b080d;
+
+$on_primary_fixed_variant: #733335;
+
+$on_secondary: #442929;
+
+$on_secondary_container: #ffdad9;
+
+$on_secondary_fixed: #2c1515;
+
+$on_secondary_fixed_variant: #5d3f3f;
+
+$on_surface: #f0dede;
+
+$on_surface_variant: #d7c1c1;
+
+$on_tertiary: #422c05;
+
+$on_tertiary_container: #ffdead;
+
+$on_tertiary_fixed: #281900;
+
+$on_tertiary_fixed_variant: #5b431a;
+
+$outline: #a08c8c;
+
+$outline_variant: #524343;
+
+$primary: #ffb3b2;
+
+$primary_container: #733335;
+
+$primary_fixed: #ffdad9;
+
+$primary_fixed_dim: #ffb3b2;
+
+$scrim: #000000;
+
+$secondary: #e6bdbc;
+
+$secondary_container: #5d3f3f;
+
+$secondary_fixed: #ffdad9;
+
+$secondary_fixed_dim: #e6bdbc;
+
+$shadow: #000000;
+
+$source_color: #f1093c;
+
+$surface: #1a1111;
+
+$surface_bright: #423736;
+
+$surface_container: #271d1d;
+
+$surface_container_high: #322827;
+
+$surface_container_highest: #3d3232;
+
+$surface_container_low: #221919;
+
+$surface_container_lowest: #140c0c;
+
+$surface_dim: #1a1111;
+
+$surface_tint: #ffb3b2;
+
+$surface_variant: #524343;
+
+$tertiary: #e4c18d;
+
+$tertiary_container: #5b431a;
+
+$tertiary_fixed: #ffdead;
+
+$tertiary_fixed_dim: #e4c18d;
+

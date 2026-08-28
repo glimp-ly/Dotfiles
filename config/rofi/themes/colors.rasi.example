@@ -1,0 +1,33 @@
+* {
+    base:            #1a1111;
+    mantle:          #221919;
+    crust:           #140c0c;
+
+    surface0:        #271d1d;
+    surface1:        #322827;
+    surface2:        #3d3232;
+
+    overlay0:        #a08c8c;
+
+    subtext0:        #d7c1c1;
+    text:            #f0dede;
+
+    accent:          #ffb3b2;
+    accent2:         #e4c18d;
+
+    red:             #ffb4ab;
+    yellow:          #e4c18d;
+    green:           #ffb3b2;
+    blue:            #e6bdbc;
+
+    bg-main:         rgba(26, 17, 17, 0.01);
+    bg-alt:          rgba(39, 29, 29, 0.50);
+    bg-selected:     rgba(255, 179, 178, 0.2);
+
+    fg-main:         #f0dede;
+    fg-dim:          #d7c1c1;
+    fg-selected:     #ffb3b2;
+
+    border-col:      rgba(255, 179, 178, 0.80);
+    urgent-col:      #ffb4ab;
+}
