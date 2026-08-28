@@ -17,3 +17,9 @@ post_hook = "eww -c ~/Dotfiles/config/eww/bar open bar"
 [templates.rofi]
 input_path = "~/.config/matugen/templates/rofi-colors.rasi"
 output_path = "~/.config/rofi/themes/colors.rasi"
+
+# plantilla para swaync
+[templates.swaync]
+input_path = "~/.config/matugen/templates/swaync-colors.css"
+output_path = "~/.config/swaync/color.css"
+post_hook = "swaync-client -rs"
