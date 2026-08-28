@@ -1,0 +1,9 @@
+/* =============================================================================
+ * colors.css — Componentes RGB generados por Matugen (NO EDITAR DIRECTAMENTE)
+ * ============================================================================= */
+
+@define-color rgb_surface     rgb(26, 17, 15);
+@define-color rgb_on_surface  rgb(241, 223, 218);
+@define-color rgb_primary     rgb(255, 181, 159);
+@define-color rgb_secondary   rgb(231, 189, 178);
+@define-color rgb_error       rgb(255, 180, 171;)
