@@ -229,8 +229,8 @@
 ;; Calendar Windows ;;
 (defwindow calendar
 	:monitor "eDP-1"
-	:geometry (geometry :x "70px" 
-						:y "65%" 
+	:geometry (geometry :x "18px" 
+						:y "77%" 
 						:width "270px" 
 						:height "60px")
 (cal))
