@@ -1,0 +1,30 @@
+#!/bin/sh
+
+icon () {
+	if bluetoothctl show | grep -q "Powered: yes"; then
+		if bluetoothctl info | grep -q "Connected: yes"; then
+			icon="󰂱"
+		else
+			icon=""
+		fi
+	else
+		icon="󰂲"
+	fi
+	echo "$icon"
+}
+
+toggle () {
+	if bluetoothctl show | grep -q "Powered: yes"; then
+                if bluetoothctl info | grep -q "Connected: yes"; then
+                        bluetoothctl disconnect
+                else
+                        bluetoothctl power off
+                fi
+        else
+                bluetoothctl power on
+        fi
+}
+
+[ "$1" = "icon" ] && icon && exit
+[ "$1" = "toggle" ] && toggle && exit
+exit
