@@ -95,6 +95,13 @@
 (defpoll volume-icon :interval "1s" "scripts/audio")
 (defvar volum false)
 
+;; Bluetooth Widget ;;
+(defwidget bluet []
+        (box            :orientation "v"
+        (button         :onclick "scripts/bluetooth toggle"
+                                :class "bluet" bluet-icon)))
+(defpoll bluet-icon :interval "0.5s" "scripts/bluetooth icon")
+
 ;; Control Panel Widgets ;;	
 (defwidget control []
 	(box :orientation "v" 
@@ -104,7 +111,8 @@
 (bat)
 (wifi)
 (bright)
-(volum)))
+(volum)
+(bluet)))
 
 ;; Clock Widgets ;;
 (defwidget time []
