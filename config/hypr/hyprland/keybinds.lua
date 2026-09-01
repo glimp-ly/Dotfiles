@@ -158,21 +158,21 @@ hl.define_submap("global", function()
     hl.bind("SUPER + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
     hl.bind("SUPER + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
     hl.bind("SUPER + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
-    hl.bind("SUPER + Minus", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = -0.1 * s.x, y = 0 * s.y, relative = true }) end end, { repeating = true })  -- Resize left
-    hl.bind("SUPER + Equal", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0.1 * s.x, y = 0 * s.y, relative = true }) end end, { repeating = true })  -- Resize right
-    hl.bind("SUPER + SHIFT + Minus", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0 * s.x, y = -0.1 * s.y, relative = true }) end end, { repeating = true })  -- Resize up
-    hl.bind("SUPER + SHIFT + Equal", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0 * s.x, y = 0.1 * s.y, relative = true }) end end, { repeating = true })  -- Resize down
-    hl.bind("SUPER + ALT + left", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = -0.1 * s.x, y = 0 * s.y, relative = true }) end end, { repeating = true })
-    hl.bind("SUPER + ALT + right", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0.1 * s.x, y = 0 * s.y, relative = true }) end end, { repeating = true })
-    hl.bind("SUPER + ALT + up", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0 * s.x, y = -0.1 * s.y, relative = true }) end end, { repeating = true })
-    hl.bind("SUPER + ALT + down", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0 * s.x, y = 0.1 * s.y, relative = true }) end end, { repeating = true })
+    -- hl.bind("SUPER + Minus", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = -0.1 * s.x, y = 0 * s.y, relative = true }) end end, { repeating = true })  -- Resize left
+    -- hl.bind("SUPER + Equal", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0.1 * s.x, y = 0 * s.y, relative = true }) end end, { repeating = true })  -- Resize right
+    --  hl.bind("SUPER + SHIFT + Minus", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0 * s.x, y = -0.1 * s.y, relative = true }) end end, { repeating = true })  -- Resize up
+    -- hl.bind("SUPER + SHIFT + Equal", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0 * s.x, y = 0.1 * s.y, relative = true }) end end, { repeating = true })  -- Resize down
+    -- hl.bind("SUPER + ALT + left", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = -0.1 * s.x, y = 0 * s.y, relative = true }) end end, { repeating = true })
+    -- hl.bind("SUPER + ALT + right", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0.1 * s.x, y = 0 * s.y, relative = true }) end end, { repeating = true })
+    -- hl.bind("SUPER + ALT + up", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0 * s.x, y = -0.1 * s.y, relative = true }) end end, { repeating = true })
+    -- hl.bind("SUPER + ALT + down", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0 * s.x, y = 0.1 * s.y, relative = true }) end end, { repeating = true })
     hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
     hl.bind("SUPER + Z", hl.dsp.window.drag(), { mouse = true })
     hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
     hl.bind("SUPER + X", hl.dsp.window.resize(), { mouse = true })
     hl.bind("CTRL + SUPER + Backslash", hl.dsp.window.center())
-    hl.bind("CTRL + SUPER + ALT + Backslash", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0.55 * s.x, y = 0.7 * s.y }) end end)
-    hl.bind("CTRL + SUPER + ALT + Backslash", hl.dsp.window.center())
+    -- hl.bind("CTRL + SUPER + ALT + Backslash", function() local w = hl.get_active_window() if w then local s = w.size return hl.dsp.window.resize({ x = 0.55 * s.x, y = 0.7 * s.y }) end end)
+    -- hl.bind("CTRL + SUPER + ALT + Backslash", hl.dsp.window.center())
     hl.bind("SUPER + P", hl.dsp.window.pin())
     hl.bind("SUPER + F", hl.dsp.window.fullscreen())
     hl.bind("SUPER + ALT + F", hl.dsp.window.fullscreen({ action = "set" }))  -- Fullscreen with borders
