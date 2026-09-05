@@ -24,7 +24,7 @@ pcall(require, "hypr-vars")
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1.25 })
 
 -- X11 escalado
--- 1. Desactivar el escalado forzado del compositor para apps X11
+-- Desactivar el escalado forzado del compositor para apps X11
 hl.config({
     xwayland = {
         force_zero_scaling = true,
@@ -32,7 +32,7 @@ hl.config({
     },
 })
 
--- 2. Variables de entorno para que el cursor y los toolkits no queden desproporcionados
+-- Variables de entorno para que el cursor y los toolkits no queden desproporcionados
 hl.env("XCURSOR_SIZE", "24")
 hl.env("GDK_SCALE", "1")
 
@@ -67,4 +67,8 @@ end)
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("eww daemon && eww -c ~/Dotfiles/config/eww/bar open bar")
+end)
+
+hl.on("hyprland.start", function()
+    hl.exec_cmd("hypridle")
 end)
