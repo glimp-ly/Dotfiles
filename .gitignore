@@ -2,4 +2,5 @@ config/eww/bar/color.scss
 config/hypr/scheme/current.lua
 config/rofi/themes/colors.rasi
 config/swaync/color.css
+config/fish/fish_variables
 *_bkp
