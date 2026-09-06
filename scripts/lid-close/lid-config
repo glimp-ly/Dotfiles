@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# ejecutar con sudo
+
+mkdir -p /etc/systemd/logind.conf.d
+
+ln -s ~/Dotfiles/scripts/lid-close/lid.conf /etc/systemd/logind.conf.d/
+
