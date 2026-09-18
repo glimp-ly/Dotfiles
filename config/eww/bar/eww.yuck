@@ -32,11 +32,21 @@
 ;; Battery Widgets ;;
 (defwidget bat []
 	(box	:orientation "v"	
-			:space-evenly "false"
-	(label	:class "bat"		
-			:halign "end"		
-			:text battery	
-			:tooltip "Battery: ${battery-cappacity}%")))
+			:space-evenly false
+	(revealer :transition "slideup"
+                          :reveal bat
+                          :duration "550ms"
+	(scale    :class "batbar"
+                          :value battery-cappacity
+			  :orientation "v"
+                          :flipped true
+			  :min 0
+           		  :max 101 
+ 			  :tooltip "Battery: ${battery-cappacity}%" 
+	(label  :class "bat"
+                        :halign "end"
+                        :text battery
+                        :tooltip "Battery: ${battery-cappacity}%" )))))
 (defpoll battery		:interval "1s"	"scripts/battery icon")
 (defpoll battery-cappacity	:interval "1s"	"scripts/battery percent")
 
@@ -215,7 +225,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bar Windows ;;
 (defwindow bar
-	:monitor "eDP-1"
+	:monitor 0
 	:geometry (geometry 	:x "0px" 
 				:y "0px" 
 				:height "100%" 
@@ -228,7 +238,7 @@
 
 ;; Calendar Windows ;;
 (defwindow calendar
-	:monitor "eDP-1"
+	:monitor 0
 	:geometry (geometry :x "18px" 
 						:y "77%" 
 						:width "270px" 

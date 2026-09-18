@@ -139,6 +139,10 @@ scale trough {
   background-color: $green;
   border-radius: 5px;
 }
+.batbar trough highlight {
+  background-color: $yellow;
+  border-radius: 5px;
+}
 
 // Clock
 .time {
