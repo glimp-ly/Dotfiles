@@ -101,7 +101,7 @@ border-radius: 30px;
   font-size: 1.1em;
   padding-right: 0.1rem;
   color: $blue;
-  margin: .5rem .2rem .5rem 0;
+  margin: .5rem .12rem .5rem .08rem;
 }
 .mic{
   color: $blue;
@@ -146,8 +146,8 @@ scale trough {
 
 .bat-popup {
   background-color: $surface_container;
-  border-radius: 6px;
-  padding: 2px 6px;
+  border-radius: 5px;
+  padding: 0;
   margin-bottom: 4px;
 }
 

@@ -37,7 +37,7 @@
             :onhoverlost "${EWW_CMD} update bat_reveal=false"
     (box :orientation "v"
          :space-evenly false
-         :class "bat-container"
+         :class "bat"
       ;; Pestaña emergente que se despliega hacia arriba
       (revealer :transition "slideup"
                 :reveal bat_reveal
