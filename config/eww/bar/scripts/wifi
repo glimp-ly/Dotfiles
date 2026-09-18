@@ -1,7 +1,8 @@
 #!/bin/sh
 
 symbol() {
-[ $(cat /sys/class/net/w*/operstate) = down ] && echo 󰤭 && exit
+[ $(cat /sys/class/net/e*/operstate) = up ] && echo 󰈀 && exit
+[ $(cat /sys/class/net/w*/operstate) = down ] && echo 󰤭  && exit
 echo 󰤨
 }
 
