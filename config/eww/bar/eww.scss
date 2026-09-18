@@ -139,9 +139,22 @@ scale trough {
   background-color: $green;
   border-radius: 5px;
 }
-.batbar trough highlight {
-  background-color: $yellow;
-  border-radius: 5px;
+
+.bat-container {
+  padding: 4px;
+}
+
+.bat-popup {
+  background-color: $surface_container;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-bottom: 4px;
+}
+
+.bat-text {
+  font-size: 15px;
+  font-weight: bold;
+  color: $blue;
 }
 
 // Clock

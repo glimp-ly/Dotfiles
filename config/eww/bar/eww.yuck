@@ -30,25 +30,28 @@
 (defpoll mic-icon :interval "0.5s" "scripts/microphone icon")
 
 ;; Battery Widgets ;;
+(defvar bat_reveal false)
+
 (defwidget bat []
-	(box	:orientation "v"	
-			:space-evenly false
-	(revealer :transition "slideup"
-                          :reveal bat
-                          :duration "550ms"
-	(scale    :class "batbar"
-                          :value battery-cappacity
-			  :orientation "v"
-                          :flipped true
-			  :min 0
-           		  :max 101 
- 			  :tooltip "Battery: ${battery-cappacity}%" 
-	(label  :class "bat"
-                        :halign "end"
-                        :text battery
-                        :tooltip "Battery: ${battery-cappacity}%" )))))
-(defpoll battery		:interval "1s"	"scripts/battery icon")
-(defpoll battery-cappacity	:interval "1s"	"scripts/battery percent")
+  (eventbox :onhover "${EWW_CMD} update bat_reveal=true"
+            :onhoverlost "${EWW_CMD} update bat_reveal=false"
+    (box :orientation "v"
+         :space-evenly false
+         :class "bat-container"
+      ;; Pestaña emergente que se despliega hacia arriba
+      (revealer :transition "slideup"
+                :reveal bat_reveal
+                :duration "300ms"
+        (box :class "bat-popup"
+          (label :class "bat-text"
+                 :text "${battery-cappacity}%")))
+      ;; Icono base
+      (label :class "bat"
+             :halign "center"
+             :text battery))))
+
+(defpoll battery           :interval "1s" "scripts/battery icon")
+(defpoll battery-cappacity :interval "1s" "scripts/battery percent")
 
 ;; Wifi Widgets ;;
 (defwidget wifi []
