@@ -175,7 +175,8 @@ hl.define_submap("global", function()
     -- hl.bind("CTRL + SUPER + ALT + Backslash", hl.dsp.window.center())
     hl.bind("SUPER + P", hl.dsp.window.pin())
     hl.bind("SUPER + F", hl.dsp.window.fullscreen())
-    hl.bind("SUPER + ALT + F", hl.dsp.window.fullscreen({ action = "set" }))  -- Fullscreen with borders
+    -- hl.bind("SUPER + ALT + F", hl.dsp.window.fullscreen({ action = "set" }))  -- Fullscreen with borders
+    hl.bind("SUPER + ALT + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
     hl.bind("SUPER + ALT + Space", hl.dsp.window.float({ action = "toggle" }))
     hl.bind("SUPER + Q", hl.dsp.window.close())
 
@@ -207,8 +208,8 @@ hl.define_submap("global", function()
     	]]))
     end, { locked = true })
     hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
-    hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-    hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
+    hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+"), { locked = true, repeating = true })
+    hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"), { locked = true, repeating = true })
 
     -- Brightness
     hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"))

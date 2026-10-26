@@ -21,7 +21,14 @@ pcall(require, "hypr-vars")
 
 
 -- ─── Monitor por defecto ───────────────────────────────
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1.25 })
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1.6 })
+
+-- hl.monitor({ 
+--     output = "eDP-1", 
+--     mode = "2560x1600@60", 
+--     position = "auto", 
+--     scale = 1.6 
+-- })
 
 -- X11 escalado
 -- Desactivar el escalado forzado del compositor para apps X11
